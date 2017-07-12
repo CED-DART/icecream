@@ -1,0 +1,7 @@
+C:\Git\icecream\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.deps.json
+C:\Git\icecream\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.dll
+C:\Git\icecream\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.pdb
+C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.csprojResolveAssemblyReference.cache
+C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.AssemblyInfo.cs
+C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.dll
+C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.pdb

@@ -1,0 +1,9 @@
+C:\Git\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.deps.json
+C:\Git\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.runtimeconfig.json
+C:\Git\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.runtimeconfig.dev.json
+C:\Git\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.dll
+C:\Git\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.pdb
+C:\Git\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.csprojResolveAssemblyReference.cache
+C:\Git\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.AssemblyInfo.cs
+C:\Git\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.dll
+C:\Git\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.pdb

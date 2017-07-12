@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.API", "IceCream.API\IceCream.API.csproj", "{64E7E335-02D6-46CD-8B3D-7C173F6E7266}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Data", "IceCream.Data\IceCream.Data.csproj", "{2C813FD1-CF35-4551-BB0A-E92C9C13406A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Business", "IceCream.Business\IceCream.Business.csproj", "{8378DEB9-7E29-4A1F-84CD-594B9742CE13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64E7E335-02D6-46CD-8B3D-7C173F6E7266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E7E335-02D6-46CD-8B3D-7C173F6E7266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E7E335-02D6-46CD-8B3D-7C173F6E7266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E7E335-02D6-46CD-8B3D-7C173F6E7266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C813FD1-CF35-4551-BB0A-E92C9C13406A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C813FD1-CF35-4551-BB0A-E92C9C13406A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C813FD1-CF35-4551-BB0A-E92C9C13406A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C813FD1-CF35-4551-BB0A-E92C9C13406A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8378DEB9-7E29-4A1F-84CD-594B9742CE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8378DEB9-7E29-4A1F-84CD-594B9742CE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8378DEB9-7E29-4A1F-84CD-594B9742CE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8378DEB9-7E29-4A1F-84CD-594B9742CE13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
