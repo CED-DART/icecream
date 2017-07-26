@@ -1,0 +1,2 @@
+ dotnet ef dbcontext scaffold "data source=dvp3.dartdigital.com.br\sql2012r2;initial Catalog=IceCreamManag
+ement;User ID=sa;Password=d@rt`$q1dvp;" Microsoft.EntityFrameworkCore.SqlServer -o Models
