@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IceCream",
+    "\\IceCream\\IceCream.Data",
+    "\\IceCream\\IceCream.Data\\Repository"
   ],
+  "SelectedNode": "\\IceCream\\IceCream.Data\\Repository\\UserRepository.cs",
   "PreviewInSolutionExplorer": false
 }
