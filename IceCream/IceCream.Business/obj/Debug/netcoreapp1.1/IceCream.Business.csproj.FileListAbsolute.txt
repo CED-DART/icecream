@@ -5,3 +5,11 @@ C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Busi
 C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.AssemblyInfo.cs
 C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.dll
 C:\Git\icecream\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.pdb
+C:\ced\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.deps.json
+C:\ced\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.dll
+C:\ced\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Business.pdb
+C:\ced\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Data.dll
+C:\ced\IceCream\IceCream.Business\bin\Debug\netcoreapp1.1\IceCream.Data.pdb
+C:\ced\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.AssemblyInfo.cs
+C:\ced\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.dll
+C:\ced\IceCream\IceCream.Business\obj\Debug\netcoreapp1.1\IceCream.Business.pdb
