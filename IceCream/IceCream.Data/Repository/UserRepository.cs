@@ -1,7 +1,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using IceCream.Data.Context;
 using IceCream.Data.Models;
 
 namespace IceCream.Data.Repository

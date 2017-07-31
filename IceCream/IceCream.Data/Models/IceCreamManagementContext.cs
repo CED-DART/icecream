@@ -1,9 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using IceCream.Data.Models;
 
-namespace IceCream.Data.Context
+namespace IceCream.Data.Models
 {
     public partial class IceCreamManagementContext : DbContext
     {
@@ -20,10 +19,8 @@ namespace IceCream.Data.Context
         {
             modelBuilder.Entity<IceCreamShop>(entity =>
             {
-                entity.HasKey(e => e.IceCreamShop1)
+                entity.HasKey(e => e.IdIceCreamShop)
                     .HasName("PK_IceCreamShop");
-
-                entity.Property(e => e.IceCreamShop1).HasColumnName("IceCreamShop");
 
                 entity.Property(e => e.Address)
                     .IsRequired()
