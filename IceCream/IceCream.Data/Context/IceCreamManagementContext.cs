@@ -20,10 +20,10 @@ namespace IceCream.Data.Context
         {
             modelBuilder.Entity<IceCreamShop>(entity =>
             {
-                entity.HasKey(e => e.IceCreamShop1)
+                entity.HasKey(e => e.IdIceCreamShop)
                     .HasName("PK_IceCreamShop");
 
-                entity.Property(e => e.IceCreamShop1).HasColumnName("IceCreamShop");
+                entity.Property(e => e.IdIceCreamShop).HasColumnName("IdIceCreamShop");
 
                 entity.Property(e => e.Address)
                     .IsRequired()
