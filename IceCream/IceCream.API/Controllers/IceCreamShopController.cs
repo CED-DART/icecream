@@ -22,8 +22,8 @@ namespace IceCream.API.Controllers
             return Component.GetAll();
         }
 
-        [HttpGet("{id}", Name = "GetIceCreamShop")]
-        public IActionResult GetPorId(int id)
+        [HttpGet, Route("Get")]
+        public IActionResult Get(int id)
         {
             var item = Component.Get(id);
             if (item == null)
@@ -44,7 +44,7 @@ namespace IceCream.API.Controllers
             return CreatedAtRoute("Get", new { Controller = "IceCreamShop", id = item.IdIceCreamShop }, item);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut, Route("Update")]
         public IActionResult Update(int id, [FromBody] IceCreamShop item)
         {
             if (item == null)
@@ -60,7 +60,7 @@ namespace IceCream.API.Controllers
             return new NoContentResult();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             Component.Delete(id);

@@ -12,6 +12,7 @@ namespace IceCream.Data.Repository
             using (IceCreamManagementContext repository = new IceCreamManagementContext())
             {
                 repository.IceCreamShop.Add(item);
+                repository.SaveChanges();
             }
         }
 
@@ -21,6 +22,7 @@ namespace IceCream.Data.Repository
             {
                 var deleteItem = repository.IceCreamShop.SingleOrDefault(r => r.IdIceCreamShop == Id);
                 repository.IceCreamShop.Remove(deleteItem);
+                repository.SaveChanges();
             }
         }
 
@@ -54,6 +56,7 @@ namespace IceCream.Data.Repository
                     updateIceCreamShop.Phone = item.Phone;
                     updateIceCreamShop.AveragePrice = item.AveragePrice;
                     updateIceCreamShop.PaymentMethods = item.PaymentMethods;
+                    repository.SaveChanges();
                 }
             }
         }
