@@ -9,11 +9,9 @@ namespace IceCream.Data.Models
         public virtual DbSet<IceCreamShop> IceCreamShop { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserDebtor> UserDebtor { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"data source=dvp3.dartdigital.com.br\sql2012r2;initial Catalog=IceCreamManagement;User ID=sa;Password=d@rt$q1dvp;");
-        }
+        public IceCreamManagementContext(DbContextOptions<IceCreamManagementContext> options)
+            : base(options)
+        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -7,14 +7,11 @@ namespace IceCream.Data.Repository
 {
     public class UserRepository
     {
-        public List<User> GetAllUser() 
+        public List<User> GetAllUser(IceCreamManagementContext context) 
         {
             List<User> response = new List<User>();
 
-            using (IceCreamManagementContext repository = new IceCreamManagementContext()) 
-            {
-                response = repository.User.ToList();
-            }
+            response = context.User.ToList();
 
             return response;
         }

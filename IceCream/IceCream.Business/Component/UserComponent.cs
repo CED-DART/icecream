@@ -14,9 +14,9 @@ namespace IceCream.Business.Component
 
         private UserRepository UserRepository { get; set; }
 
-        public List<User> GetAllUser() 
+        public List<User> GetAllUser(IceCreamManagementContext context) 
         {
-            List<User> userList = UserRepository.GetAllUser();
+            List<User> userList = UserRepository.GetAllUser(context);
 
             return userList;
         }
