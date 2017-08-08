@@ -20,6 +20,8 @@ namespace IceCream.Data.Models
                 entity.HasKey(e => e.IdIceCreamShop)
                     .HasName("PK_IceCreamShop");
 
+                entity.Property(e => e.IdIceCreamShop).HasColumnName("IdIceCreamShop");
+
                 entity.Property(e => e.Address)
                     .IsRequired()
                     .HasColumnType("varchar(350)");

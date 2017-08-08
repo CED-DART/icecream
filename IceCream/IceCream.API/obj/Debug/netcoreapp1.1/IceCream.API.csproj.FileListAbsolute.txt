@@ -19,3 +19,16 @@ C:\ced\IceCream\icecream.api\bin\Debug\netcoreapp1.1\IceCream.Business.pdb
 C:\ced\IceCream\icecream.api\obj\Debug\netcoreapp1.1\IceCream.API.AssemblyInfo.cs
 C:\ced\IceCream\icecream.api\obj\Debug\netcoreapp1.1\IceCream.API.dll
 C:\ced\IceCream\icecream.api\obj\Debug\netcoreapp1.1\IceCream.API.pdb
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.deps.json
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.runtimeconfig.json
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.runtimeconfig.dev.json
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.dll
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.API.pdb
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.Business.dll
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.Data.dll
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.Data.pdb
+C:\CED\icecream\IceCream\IceCream.API\bin\Debug\netcoreapp1.1\IceCream.Business.pdb
+C:\CED\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.csprojResolveAssemblyReference.cache
+C:\CED\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.AssemblyInfo.cs
+C:\CED\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.dll
+C:\CED\icecream\IceCream\IceCream.API\obj\Debug\netcoreapp1.1\IceCream.API.pdb
