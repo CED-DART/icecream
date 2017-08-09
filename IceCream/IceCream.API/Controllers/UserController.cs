@@ -7,38 +7,81 @@ namespace IceCream.API.Controllers
 {
     [Route("api/User")]
     public class UserController : Controller
-    {
+    {        
         private UserComponent Component { get; set; }
         
-        public UserController()
+        public UserController(IceCreamManagementContext context)
         {
-            Component = new UserComponent();
+            Component = new UserComponent(context);
         }
 
-        [HttpGet]
-        public List<User> tESTE()
+        [HttpGet, Route("GetAll")]
+        public IActionResult GetAll()
         {
-            List<User> response = Component.GetAllUser();
+            List<User> response = Component.GetAll();
 
-            return response;
+            return Json(response);
         }
 
-        [HttpPost]
-        public List<User> Save(User model)
+        [HttpGet, Route("Get")]
+        public IActionResult Get(int id)
         {
-            return null;
+            var user = Component.Get(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Json(user);
         }
 
-        [HttpPost]
-        public ActionResult Edit(User model)
+        [HttpPost, Route("Add")]
+        public IActionResult Add([FromBody] User user)
         {
-            return null;
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            Component.Add(user);
+
+            return Ok();
         }
 
-        [HttpDelete]
-        public ActionResult Delete(User model)
+        [HttpPut, Route("Update")]
+        public IActionResult Update([FromBody] User user)
         {
-            return null;
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            User oldEntity = Component.Get(user.IdUser);
+
+            if (oldEntity == null)
+            {
+                return NotFound();
+            }
+
+            Component.Update(user);
+
+            return Ok();
+        }
+
+        [HttpDelete, Route("Delete")]
+        public IActionResult Delete(int id)
+        {
+            User user = Component.Get(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            Component.Delete(id);
+
+            return Ok();
         }
 
     }

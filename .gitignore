@@ -4,3 +4,8 @@ IceCream/IceCream.Business/obj/project.assets.json
 IceCream/IceCream.Data/obj/IceCream.Data.csproj.nuget.g.props
 IceCream/IceCream.API/obj/project.assets.json
 IceCream/IceCream.API/bin/
+IceCream/IceCream.API/obj/
+IceCream/IceCream.Data/bin/
+IceCream/IceCream.Data/obj/
+IceCream/IceCream.Business/bin/
+IceCream/IceCream.Business/obj/

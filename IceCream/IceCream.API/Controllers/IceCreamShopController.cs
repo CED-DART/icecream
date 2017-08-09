@@ -11,9 +11,9 @@ namespace IceCream.API.Controllers
     {
         private IceCreamShopComponent Component { get; set; }
 
-        public IceCreamShopController()
+        public IceCreamShopController(IceCreamManagementContext context)
         {
-            Component = new IceCreamShopComponent();
+            Component = new IceCreamShopComponent(context);
         }
 
         [HttpGet]

@@ -7,9 +7,10 @@ namespace IceCream.Business.Component
     public class IceCreamShopComponent
     {
         private IceCreamShopRepository IceCreamShopRepository { get; set; }
-        public IceCreamShopComponent()
+        
+        public IceCreamShopComponent(IceCreamManagementContext context)
         {
-            IceCreamShopRepository = new IceCreamShopRepository();
+            IceCreamShopRepository = new IceCreamShopRepository(context);
         }
 
         public void Add(IceCreamShop item)

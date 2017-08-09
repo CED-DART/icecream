@@ -7,18 +7,36 @@ namespace IceCream.Business.Component
 {
     public class UserComponent 
     {
-        public UserComponent()
-        {
-            UserRepository = new UserRepository();
-        }
-
         private UserRepository UserRepository { get; set; }
 
-        public List<User> GetAllUser(IceCreamManagementContext context) 
+        public UserComponent(IceCreamManagementContext context)
         {
-            List<User> userList = UserRepository.GetAllUser(context);
+            UserRepository = new UserRepository(context);
+        }
 
-            return userList;
+        public List<User> GetAll() 
+        {
+            return UserRepository.GetAllUser();
+        }
+
+        public User Get(int id)
+        {
+            return UserRepository.Get(id);
+        }
+
+        public void Add(User user)
+        {
+            UserRepository.Add(user);
+        }
+
+        public void Update(User user)
+        {
+            UserRepository.Update(user);
+        }
+
+        public void Delete(int id) 
+        {
+            UserRepository.Delete(id);
         }
 
     }
