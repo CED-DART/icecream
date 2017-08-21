@@ -1,11 +1,13 @@
 
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using IceCream.Data.Models;
 using IceCream.Data.Repository;
 
-namespace IceCream.Business.Component 
+namespace IceCream.Business.Component
 {
-    public class UserComponent 
+    public class UserComponent
     {
         private UserRepository UserRepository { get; set; }
 
@@ -14,7 +16,7 @@ namespace IceCream.Business.Component
             UserRepository = new UserRepository(context);
         }
 
-        public List<User> GetAll() 
+        public List<User> GetAll()
         {
             return UserRepository.GetAllUser();
         }
@@ -26,6 +28,7 @@ namespace IceCream.Business.Component
 
         public void Add(User user)
         {
+            user.Password = GetMd5Hash(user.Password);
             UserRepository.Add(user);
         }
 
@@ -34,9 +37,40 @@ namespace IceCream.Business.Component
             UserRepository.Update(user);
         }
 
-        public void Delete(int id) 
+        public void Delete(int id)
         {
             UserRepository.Delete(id);
+        }
+
+        public User Login(string email, string password)
+        {
+            User user = new User();
+
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            {
+                password = GetMd5Hash(password);
+
+                user = UserRepository.GetByLogin(email, password);
+            }
+
+            return user;
+        }
+
+        private string GetMd5Hash(string input)
+        {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                StringBuilder response = new StringBuilder();
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    response.Append(data[i].ToString("x2"));
+                }
+    
+                return response.ToString();
+            }
         }
 
     }

@@ -68,7 +68,12 @@ namespace IceCream.Data.Repository
             Context.SaveChanges();
         }
 
-
+        public User GetByLogin(string email, string password) 
+        {
+            User user = Context.User.FirstOrDefault(u => u.Email == email && u.Password == password);
+            
+            return user;
+        }
 
     }
 }
