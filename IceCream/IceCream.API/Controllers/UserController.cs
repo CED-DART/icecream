@@ -84,5 +84,18 @@ namespace IceCream.API.Controllers
             return Ok();
         }
 
+        [HttpPost, Route("Login")]
+        public IActionResult Login([FromBody] User user) 
+        {
+            User response = Component.Login(user.Email, user.Password);
+
+            if (user == null) 
+            {
+                return NotFound();
+            }
+
+            return Json(response);    
+        }
+
     }
 }
