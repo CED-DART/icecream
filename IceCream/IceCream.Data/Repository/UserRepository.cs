@@ -7,14 +7,14 @@ namespace IceCream.Data.Repository
 {
     public class UserRepository
     {
-        private IceCreamManagementContext Context {get; set;}
+        private IceCreamManagementContext Context { get; set; }
 
-        public UserRepository(IceCreamManagementContext context) 
+        public UserRepository(IceCreamManagementContext context)
         {
             Context = context;
         }
 
-        public List<User> GetAllUser() 
+        public List<User> GetAllUser()
         {
             List<User> response = new List<User>();
 
@@ -23,7 +23,7 @@ namespace IceCream.Data.Repository
             return response;
         }
 
-        public User Get(int id) 
+        public User Get(int id)
         {
             User user = new User();
 
@@ -36,7 +36,7 @@ namespace IceCream.Data.Repository
         {
             user.Created = DateTime.Now;
             Context.User.Add(user);
-            
+
             Context.SaveChanges();
         }
 
