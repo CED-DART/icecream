@@ -23,6 +23,11 @@ namespace IceCream.Business.Component
             return UserDebtorRepository.GetAllUserDebtor();
         }
 
+        public List<PendingUserDebtor> GetPendingUserDebtor(int? maximumItems)
+        {
+            return UserDebtorRepository.GetPendingUserDebtor(maximumItems);
+        }
+
         public List<UserDebtor> GetUserDebtorByUser(int idUser)
         {
             return UserDebtorRepository.GetUserDebtorByUser(idUser);
@@ -31,7 +36,6 @@ namespace IceCream.Business.Component
         public void CreatePendingDebtors()
         {
             var users = UserComponent.GetUserWithAcceptance();
-            
             
             //TODO: Método de criação de débitos
 

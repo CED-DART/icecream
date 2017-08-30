@@ -2,7 +2,6 @@
 using IceCream.Business.Component;
 using IceCream.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-
 namespace IceCream.API.Controllers
 {
     [Route("api/UserDebtor")]
@@ -15,10 +14,10 @@ namespace IceCream.API.Controllers
             Component = new UserDebtorComponent(context);
         }
 
-        [HttpGet, Route("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet, Route("GetPending")]
+        public IActionResult GetPending(int? maximumItems = null)
         {
-            var userDebtorList = Component.GetAllUserDebtor();
+            var userDebtorList = Component.GetPendingUserDebtor(maximumItems);
 
             return Json(userDebtorList);
         }

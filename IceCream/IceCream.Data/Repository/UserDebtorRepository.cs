@@ -20,6 +20,27 @@ namespace IceCream.Data.Repository
 
             return response;
         }
+
+        public List<PendingUserDebtor> GetPendingUserDebtor(int? maximumItems)
+        {
+            var query = Context.UserDebtor.Where(ud => ud.PaymentDate == null).Select(u => new PendingUserDebtor()
+            {
+                IdUserDebtor = u.IdUserDebtor,
+                UserName = u.IdUserNavigation.Name,
+                UserContact = u.IdUserNavigation.Contact,
+                DebitDate = u.DebitDate,
+                Reason = u.Reason
+            });
+
+            if(maximumItems.HasValue)
+            {
+               query = query.Take(maximumItems.Value);
+            }
+
+            var response = query.ToList();
+
+            return response;
+        }
         
         public List<UserDebtor> GetUserDebtorByUser(int idUser)
         {
