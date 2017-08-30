@@ -11,10 +11,11 @@ namespace IceCream.Business.Component
     public class UserDebtorComponent
     {
         private UserDebtorRepository UserDebtorRepository { get; set; }
-
+        private UserComponent UserComponent { get; set; }
         public UserDebtorComponent(IceCreamManagementContext context)
         {
             UserDebtorRepository = new UserDebtorRepository(context);
+            UserComponent = new UserComponent(context);
         }
 
         public List<UserDebtor> GetAllUserDebtor()
@@ -29,6 +30,9 @@ namespace IceCream.Business.Component
 
         public void CreatePendingDebtors()
         {
+            var users = UserComponent.GetUserWithAcceptance();
+            
+            
             //TODO: Método de criação de débitos
 
             throw new NotImplementedException();

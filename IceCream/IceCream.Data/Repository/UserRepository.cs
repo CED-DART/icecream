@@ -75,5 +75,12 @@ namespace IceCream.Data.Repository
             return user;
         }
 
+        public List<User> GetUserWithAcceptance()
+        {
+            var response = Context.User.Where(u => u.AcceptedTemsDate != null).ToList();
+
+            return response;
+        }
+
     }
 }
