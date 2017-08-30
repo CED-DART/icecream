@@ -73,5 +73,9 @@ namespace IceCream.Business.Component
             }
         }
 
+        public List<User> GetUserWithAcceptance()
+        {
+            return UserRepository.GetUserWithAcceptance();
+        }
     }
 }
