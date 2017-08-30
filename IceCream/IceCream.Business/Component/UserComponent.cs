@@ -56,6 +56,15 @@ namespace IceCream.Business.Component
             return user;
         }
 
+        public void AcceptedTerms(User user)
+        {
+            if (user.AcceptedTemsDate == null)
+            {
+                user.AcceptedTemsDate = System.DateTime.Now;
+            }
+            UserRepository.Update(user);
+        }
+
         private string GetMd5Hash(string input)
         {
             using (MD5 md5Hash = MD5.Create())

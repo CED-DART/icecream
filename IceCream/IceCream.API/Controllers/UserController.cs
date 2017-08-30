@@ -97,5 +97,20 @@ namespace IceCream.API.Controllers
             return Json(response);    
         }
 
+        [HttpPost, Route("AcceptedTerms")]
+        public IActionResult AcceptedTerms(int id)
+        {
+            User user = Component.Get(id);
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+            
+            Component.AcceptedTerms(user);
+
+            return Ok();
+        }
+
     }
 }
