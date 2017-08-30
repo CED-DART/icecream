@@ -31,7 +31,9 @@ namespace IceCream.API
         {
             services.AddDbContext<IceCreamManagementContext>(options => 
                 options.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
-            
+
+            services.AddCors();
+
             services.AddMvc();
         }
 
@@ -43,7 +45,13 @@ namespace IceCream.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            
             app.UseMvc();
         }
     }
