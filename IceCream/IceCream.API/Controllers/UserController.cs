@@ -111,5 +111,13 @@ namespace IceCream.API.Controllers
 
             return Ok();
         }
+
+        [HttpPost, Route("RecoveryPassword")]
+        public IActionResult RecoveryPassword([FromBody] User user)
+        {
+            // TODO: Método de recuperação de senha
+
+            return Ok();
+        }
     }
 }
