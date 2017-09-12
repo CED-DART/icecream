@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
@@ -32,9 +31,27 @@ namespace IceCream.Business.Component
             UserRepository.Add(user);
         }
 
-        public void Update(User user)
+        public void Update(User originalEntity, User user)
         {
-            UserRepository.Update(user);
+            if (!string.IsNullOrEmpty(user.Name) && user.Name != originalEntity.Name)
+                originalEntity.Name = user.Name;
+            
+            if (!string.IsNullOrEmpty(user.Email) && user.Email != originalEntity.Email)
+                originalEntity.Email = user.Email;
+
+            if (!string.IsNullOrEmpty(user.Contact) && user.Contact != originalEntity.Contact)
+                originalEntity.Contact = user.Contact;
+
+            if (user.BirthDate != null && user.BirthDate != originalEntity.BirthDate)
+                originalEntity.BirthDate = user.BirthDate;
+
+            if (user.AdmissionDate != null && user.AdmissionDate != originalEntity.AdmissionDate)
+                originalEntity.AdmissionDate = user.AdmissionDate;
+
+            if (!string.IsNullOrEmpty(user.Password))
+                originalEntity.Password = GetMd5Hash(user.Password);
+
+            UserRepository.Update(originalEntity);
         }
 
         public void Delete(int id)
@@ -85,6 +102,20 @@ namespace IceCream.Business.Component
         public List<User> GetUserWithAcceptance()
         {
             return UserRepository.GetUserWithAcceptance();
+        }
+
+        public bool ChangePassword(User entity, RequestChangePassword user)
+        {
+            if (entity.Password != GetMd5Hash(user.Password)) 
+            {
+                return false;
+            }
+
+            entity.Password = GetMd5Hash(user.NewPassword);
+
+            UserRepository.Update(entity);
+
+            return true;
         }
     }
 }

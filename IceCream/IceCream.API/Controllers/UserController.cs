@@ -64,9 +64,50 @@ namespace IceCream.API.Controllers
                 return NotFound();
             }
 
-            Component.Update(user);
+            Component.Update(oldEntity, user);
 
             return Ok();
+        }
+
+        [HttpPut, Route("EnableDisable")]
+        public IActionResult EnableDisable([FromBody] RequestEnableDisable request)
+        {
+            if (request == null)
+            {
+                return BadRequest();
+            }
+
+            User user = Component.Get(request.IdUser);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            
+            return Ok();
+        }
+
+        [HttpPut, Route("ChangePassword")]
+        public IActionResult ChangePassword([FromBody] RequestChangePassword request)
+        {
+            if (request == null)
+            {
+                return BadRequest();
+            }
+
+            User user = Component.Get(request.IdUser);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            bool response = Component.ChangePassword(user, request);
+
+            if(response)
+                return Ok();
+                
+            return BadRequest();
         }
 
         [HttpDelete, Route("Delete")]

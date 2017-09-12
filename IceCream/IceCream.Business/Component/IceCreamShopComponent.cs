@@ -33,8 +33,23 @@ namespace IceCream.Business.Component
             return IceCreamShopRepository.GetAll();
         }
 
-        public void Update(IceCreamShop item)
+        public void Update(IceCreamShop originalEntity, IceCreamShop item)
         {
+            if (!string.IsNullOrEmpty(item.Name) && item.Name != originalEntity.Name)
+                originalEntity.Name = item.Name;
+            
+            if (!string.IsNullOrEmpty(item.Address) && item.Address != originalEntity.Address)
+                originalEntity.Address = item.Address;
+
+            if (!string.IsNullOrEmpty(item.Phone) && item.Phone != originalEntity.Phone)
+                originalEntity.Phone = item.Phone;
+
+            if (!string.IsNullOrEmpty(item.PaymentMethods) && item.PaymentMethods != originalEntity.PaymentMethods)
+                originalEntity.PaymentMethods = item.PaymentMethods;
+
+            if (item.AveragePrice != null && item.AveragePrice != originalEntity.AveragePrice)
+                originalEntity.AveragePrice = item.AveragePrice;
+
             IceCreamShopRepository.Update(item);
         }
     }

@@ -45,18 +45,22 @@ namespace IceCream.API.Controllers
         }
 
         [HttpPut, Route("Update")]
-        public IActionResult Update(int id, [FromBody] IceCreamShop item)
+        public IActionResult Update([FromBody] IceCreamShop item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
-            var contactObj = Component.Get(id);
-            if (contactObj == null)
+            
+            var oldEntity = Component.Get(item.IdIceCreamShop);
+
+            if (oldEntity == null)
             {
                 return NotFound();
             }
-            Component.Update(item);
+
+            Component.Update(oldEntity, item);
+
             return new NoContentResult();
         }
 
