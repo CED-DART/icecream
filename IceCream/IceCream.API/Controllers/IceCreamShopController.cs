@@ -33,15 +33,17 @@ namespace IceCream.API.Controllers
             return new ObjectResult(item);
         }
 
-        [HttpPost]
+        [HttpPost, Route("Add")]
         public IActionResult Add([FromBody] IceCreamShop item)
         {
             if (item == null)
             {
                 return BadRequest();
             }
+
             Component.Add(item);
-            return CreatedAtRoute("Get", new { Controller = "IceCreamShop", id = item.IdIceCreamShop }, item);
+
+            return Ok();
         }
 
         [HttpPut, Route("Update")]
@@ -61,13 +63,27 @@ namespace IceCream.API.Controllers
 
             Component.Update(oldEntity, item);
 
-            return new NoContentResult();
+            return Ok();
         }
 
         [HttpDelete]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (id <= 0)
+            {
+                return BadRequest();
+            }
+            
+            var iceCreamShop = Component.Get(id);
+
+            if (iceCreamShop == null)
+            {
+                return NotFound();
+            }
+            
             Component.Delete(id);
+
+            return Ok();
         }
     }
 }
