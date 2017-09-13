@@ -19,7 +19,10 @@ namespace IceCream.Data.Models
         public string Password { get; set; }
         public DateTime? AcceptedTemsDate { get; set; }
         public DateTime Created { get; set; }
+        public bool IsAdmin { get; set; }
 
         public virtual ICollection<UserDebtor> UserDebtor { get; set; }
+
+        
     }
 }
