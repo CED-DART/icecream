@@ -9,22 +9,26 @@ using System.Threading.Tasks;
 namespace IceCream.Business.Component
 {
     public class SendEmail
-    {        public async Task SendEmailAsync(string email, string subject, string message)
+    {
+        public void SendEmailIceScream(string userName, string email, string subject, string message)
         {
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress("ICE SCREAM", "cedicescream@gmail.com"));
-            emailMessage.To.Add(new MailboxAddress("reginaldo.botelho@dartdigital.com.br", email));
+            emailMessage.To.Add(new MailboxAddress(userName, email));
             emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart("Resete pass") { Text = message };
+            emailMessage.Body = new TextPart("plain") { Text = message };
 
             using (var client = new SmtpClient())
             {
-                client.LocalDomain = "gmail.com";
-                await client.ConnectAsync("smtp.gmail.com", 25, SecureSocketOptions.None).ConfigureAwait(false);
-                await client.SendAsync(emailMessage).ConfigureAwait(false);
-                await client.DisconnectAsync(true).ConfigureAwait(false);
+                client.Connect("smtp.gmail.com", 587);
+
+                ////Note: only needed if the SMTP server requires authentication
+                client.Authenticate("cedicescream@gmail.com", "i1qazse$");
+
+                client.Send(emailMessage);
+                client.Disconnect(true);
             }
         }
-    }    
+    }
 }

@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using IceCream.Data.Models;
 using IceCream.Data.Repository;
+using System;
 
 namespace IceCream.Business.Component
 {
@@ -117,5 +118,38 @@ namespace IceCream.Business.Component
 
             return true;
         }
+
+        public bool ResetPassword(User user)
+        {  
+            var token = new StringBuilder();
+
+            //Prepare a 10-character random text
+            //using (RNGCryptoServiceProvider
+            //                    rngCsp = new RNGCryptoServiceProvider())
+            //{
+            //    var data = new byte[4];
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        //filled with an array of random numbers
+            //        rngCsp.GetBytes(data);
+            //        //this is converted into a character from A to Z
+            //        var randomchar = Convert.ToChar(
+            //                                  //produce a random number 
+            //                                  //between 0 and 25
+            //                                  BitConverter.ToUInt32(data, 0) % 26
+            //                                  //Convert.ToInt32('A')==65
+            //                                  + 65
+            //                         );
+            //        token.Append(randomchar);
+            //    }
+            //}
+            ////This will be the password change identifier 
+            ////that the user will be sent out
+            //var tokenid = token.ToString();
+
+            return true;
+        }
+
+       
     }
 }
