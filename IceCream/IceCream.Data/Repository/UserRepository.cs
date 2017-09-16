@@ -54,6 +54,8 @@ namespace IceCream.Data.Repository
                 entity.Name = user.Name;
                 entity.Password = user.Password;
                 entity.IsAdmin = user.IsAdmin;
+                entity.Active = user.Active;
+
 
                 Context.User.Update(entity);
 

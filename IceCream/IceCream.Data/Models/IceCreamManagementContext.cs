@@ -73,6 +73,14 @@ namespace IceCream.Data.Models
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasColumnType("varchar(500)");
+                entity.Property(e => e.IsAdmin)
+                    .IsRequired()
+                    .HasColumnType("bit");
+                entity.Property(e => e.ImageURL)
+                    .HasColumnType("varchar(MAX)");
+                entity.Property(e => e.Active)
+                    .IsRequired()
+                    .HasColumnType("bit");
             });
 
             modelBuilder.Entity<UserDebtor>(entity =>
