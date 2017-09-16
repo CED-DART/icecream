@@ -29,5 +29,13 @@ namespace IceCream.API.Controllers
 
             return Ok();
         }
+
+        [HttpGet, Route("GetLastPaymentDate")]
+        public IActionResult GetLastPaymentDate()
+        {
+            var lastPaymentDate = Component.GetLastPaymentDate();
+
+            return Json(lastPaymentDate);
+        }        
     }
 }
