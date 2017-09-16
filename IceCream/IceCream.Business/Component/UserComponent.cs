@@ -52,6 +52,9 @@ namespace IceCream.Business.Component
             if (!string.IsNullOrEmpty(user.Password))
                 originalEntity.Password = GetMd5Hash(user.Password);
 
+            if (user.ImageURL != originalEntity.ImageURL)
+                originalEntity.ImageURL = user.ImageURL;
+
             UserRepository.Update(originalEntity);
         }
 
