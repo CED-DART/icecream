@@ -64,5 +64,12 @@ namespace IceCream.Data.Repository
             Context.SaveChanges();
         }
 
+        
+        public DateTime? GetLastPaymentDate()
+        {
+            var query = Context.UserDebtor.Where(ud => ud.PaymentDate != null);
+
+            return query.Max(ud => ud.PaymentDate);
+        }
     }
 }

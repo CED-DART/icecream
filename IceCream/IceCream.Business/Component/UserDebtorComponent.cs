@@ -40,6 +40,11 @@ namespace IceCream.Business.Component
             //TODO: Método de criação de débitos
 
             throw new NotImplementedException();
+        }
+
+        public DateTime? GetLastPaymentDate()
+        {
+            return UserDebtorRepository.GetLastPaymentDate();
         }        
     }
 }
