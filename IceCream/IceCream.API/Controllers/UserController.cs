@@ -154,11 +154,13 @@ namespace IceCream.API.Controllers
         }
 
         [HttpPost, Route("RecoveryPassword")]
-        public IActionResult RecoveryPassword([FromBody] User user)
+        public async System.Threading.Tasks.Task<IActionResult> RecoveryPasswordAsync([FromBody] User user)
         {
-            // TODO: Método de recuperação de senha
-
             return Ok();
+
+            SendEmail sendEmail = new SendEmail();
+            await sendEmail.SendEmailAsync("reginaldo.botelho@dartdigital.com.br", "Teste iCe Scream", "Body: Teste iCe Scream");
+
         }
     }
 }
