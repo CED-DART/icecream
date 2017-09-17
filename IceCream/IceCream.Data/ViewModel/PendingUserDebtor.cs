@@ -7,4 +7,5 @@ public partial class PendingUserDebtor
     public string UserContact { get; set; }
     public DateTime DebitDate { get; set; }
     public string Reason { get; set; }
+    public string ImageURL { get; set; }
 }
