@@ -55,6 +55,9 @@ namespace IceCream.Business.Component
             if (user.ImageURL != originalEntity.ImageURL)
                 originalEntity.ImageURL = user.ImageURL;
 
+            if (user.IsAdmin != originalEntity.IsAdmin)
+                originalEntity.IsAdmin = user.IsAdmin;
+
             UserRepository.Update(originalEntity);
         }
 
@@ -153,6 +156,11 @@ namespace IceCream.Business.Component
             return true;
         }
 
-       
+        public void EnableDisable(User user, bool active)
+        {
+            user.Active = active;
+
+            UserRepository.Update(user);
+        }       
     }
 }

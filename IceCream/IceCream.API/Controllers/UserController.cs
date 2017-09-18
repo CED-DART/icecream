@@ -83,6 +83,8 @@ namespace IceCream.API.Controllers
             {
                 return NotFound();
             }
+
+            Component.EnableDisable(user, request.Active);
             
             return Ok();
         }
