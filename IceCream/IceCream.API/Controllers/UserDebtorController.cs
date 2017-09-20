@@ -36,6 +36,19 @@ namespace IceCream.API.Controllers
             var lastPaymentDate = Component.GetLastPaymentDate();
 
             return Json(lastPaymentDate);
-        }        
+        }
+
+        [HttpPut, Route("RequestPayment")]
+        public IActionResult RequestPayment([FromBody] RequestUserDebtorPayment requestPayment)
+        {
+            if (requestPayment == null)
+            {
+                return BadRequest();
+            }
+
+            Component.RequestPayment(requestPayment);
+
+            return Ok();
+        }
     }
 }

@@ -72,5 +72,20 @@ namespace IceCream.Data.Repository
 
             return query.Max(ud => ud.PaymentDate);
         }
+
+        public void UpdateRequestPayment(RequestUserDebtorPayment requestUserDebtorPayment)
+        {
+            var entity = Get(requestUserDebtorPayment.IdUserDebtor);
+
+            if (entity != null)
+            {
+                entity.PaymentDate = requestUserDebtorPayment.PaymentDate;
+                entity.Evaluation = requestUserDebtorPayment.Evaluation;
+
+                Context.UserDebtor.Update(entity);
+
+                Context.SaveChanges();
+            }
+        }
     }
 }
