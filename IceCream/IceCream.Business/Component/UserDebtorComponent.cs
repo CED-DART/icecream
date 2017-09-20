@@ -75,5 +75,10 @@ namespace IceCream.Business.Component
 
             UserDebtorRepository.UpdateRequestPayment(requestPayment);
         }
+        
+        public List<EvaluationData> GetAllEvaluationData()
+        {
+            return UserDebtorRepository.GetAllEvaluationData();
+        }
     }
 }

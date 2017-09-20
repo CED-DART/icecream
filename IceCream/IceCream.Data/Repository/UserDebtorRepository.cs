@@ -87,5 +87,21 @@ namespace IceCream.Data.Repository
                 Context.SaveChanges();
             }
         }
+
+        public List<EvaluationData> GetAllEvaluationData()
+        {
+            var query = Context.UserDebtor.Where(ud => ud.PaymentDate != null);
+
+            var responseList = query.Select(q => new EvaluationData() 
+            {
+                UserName = q.IdUserNavigation.Name,
+                DebitDate = q.DebitDate,
+                PaymentDate = q.PaymentDate.Value,
+                Reason = q.Reason,
+                Evaluation = q.Evaluation,
+            }).ToList();
+
+            return responseList;
+        }
     }
 }

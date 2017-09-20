@@ -50,5 +50,13 @@ namespace IceCream.API.Controllers
 
             return Ok();
         }
+
+        [HttpGet, Route("GetAllEvaluationData")]
+        public IActionResult GetAllEvaluationData()
+        {
+            var evaluationData = Component.GetAllEvaluationData();
+
+            return Json(evaluationData);
+        }
     }
 }
