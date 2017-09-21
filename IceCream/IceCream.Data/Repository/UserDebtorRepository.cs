@@ -90,7 +90,7 @@ namespace IceCream.Data.Repository
 
         public List<EvaluationData> GetAllEvaluationData()
         {
-            var query = Context.UserDebtor.Where(ud => ud.PaymentDate != null);
+            var query = Context.UserDebtor.Where(ud => ud.PaymentDate != null).OrderByDescending(ud => ud.PaymentDate);
 
             var responseList = query.Select(q => new EvaluationData() 
             {
