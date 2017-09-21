@@ -39,12 +39,46 @@ namespace IceCream.Business.Component
             
             //TODO: Método de criação de débitos
 
-            throw new NotImplementedException();
+            foreach (var user in users)
+            {
+                
+            }
         }
 
         public DateTime? GetLastPaymentDate()
         {
             return UserDebtorRepository.GetLastPaymentDate();
-        }        
+        }
+        public void RequestPayment(RequestUserDebtorPayment requestPayment)  
+        {
+            if (requestPayment.PaymentDate == null)
+            {
+                throw new Exception("Data de pagamento é obrigatória");
+            }
+
+            if (requestPayment.Evaluation == null)
+            {
+                throw new Exception("Avaliação é obrigatória");
+            }
+
+           var userDebtor = UserDebtorRepository.Get(requestPayment.IdUserDebtor);
+
+            if (userDebtor == null)
+            {
+                throw new Exception("Débito não encontrado");
+            }
+
+            if (userDebtor.PaymentDate != null)
+            {
+                throw new Exception("Pagamento já baixado");
+            }
+
+            UserDebtorRepository.UpdateRequestPayment(requestPayment);
+        }
+        
+        public List<EvaluationData> GetAllEvaluationData()
+        {
+            return UserDebtorRepository.GetAllEvaluationData();
+        }
     }
 }
