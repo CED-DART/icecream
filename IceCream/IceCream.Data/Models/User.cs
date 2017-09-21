@@ -22,6 +22,7 @@ namespace IceCream.Data.Models
         public bool IsAdmin { get; set; }
         public string ImageURL { get; set; }
         public bool Active { get; set; }
+        public string Token { get; set; }
 
         public virtual ICollection<UserDebtor> UserDebtor { get; set; }
 

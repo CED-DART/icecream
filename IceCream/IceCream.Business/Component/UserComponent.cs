@@ -4,6 +4,9 @@ using System.Text;
 using IceCream.Data.Models;
 using IceCream.Data.Repository;
 using System;
+using System.Net;
+using System.IO;
+using System.Net.Http;
 
 namespace IceCream.Business.Component
 {
@@ -125,36 +128,38 @@ namespace IceCream.Business.Component
             return true;
         }
 
-        public bool ResetPassword(User user)
-        {  
-            var token = new StringBuilder();
+        public async System.Threading.Tasks.Task<bool> ResetPasswordAsync(User user)
+        {
+            var tokenid = Guid.NewGuid();
 
-            //Prepare a 10-character random text
-            //using (RNGCryptoServiceProvider
-            //                    rngCsp = new RNGCryptoServiceProvider())
-            //{
-            //    var data = new byte[4];
-            //    for (int i = 0; i < 10; i++)
-            //    {
-            //        //filled with an array of random numbers
-            //        rngCsp.GetBytes(data);
-            //        //this is converted into a character from A to Z
-            //        var randomchar = Convert.ToChar(
-            //                                  //produce a random number 
-            //                                  //between 0 and 25
-            //                                  BitConverter.ToUInt32(data, 0) % 26
-            //                                  //Convert.ToInt32('A')==65
-            //                                  + 65
-            //                         );
-            //        token.Append(randomchar);
-            //    }
-            //}
-            ////This will be the password change identifier 
-            ////that the user will be sent out
-            //var tokenid = token.ToString();
+            user.Token = tokenid.ToString();
+
+            UserRepository.Update(user);
+
+            string url = "https://icescreamstorage.blob.core.windows.net/templates/SendResetPassword.htm";
+            string response = string.Empty;
+            using (var client = new HttpClient())
+            {
+                response = await client.GetStringAsync(url);
+                //Existem outras opções aliém do GetStringAsync, aí você precisa explorar a classe
+            }
+
+            response.Replace("{{name}}", user.Name);
+            response.Replace("{{action_url}}", string.Format("{0}token={1}", "https://icescreamapp.herokuapp.com/resetpassword/", tokenid));
+
+            SendEmail sendEmail = new SendEmail();
+            sendEmail.SendEmailIceScream(user.Name, user.Email, "Recuperação de senha", response);
+            
+            return true;
+        }
+
+        public bool RecoveryPasswordToken(string token)
+        {
+            var user = UserRepository.GetByToken(token);
 
             return true;
         }
+
 
         public void EnableDisable(User user, bool active)
         {

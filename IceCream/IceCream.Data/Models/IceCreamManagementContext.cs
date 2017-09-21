@@ -81,6 +81,8 @@ namespace IceCream.Data.Models
                 entity.Property(e => e.Active)
                     .IsRequired()
                     .HasColumnType("bit");
+                entity.Property(e => e.Token)
+                    .HasColumnType("varchar(100)");
             });
 
             modelBuilder.Entity<UserDebtor>(entity =>

@@ -85,5 +85,12 @@ namespace IceCream.Data.Repository
             return response;
         }
 
+        public User GetByToken(string token)
+        {
+            User user = Context.User.FirstOrDefault(u => u.Token == token);
+
+            return user;
+        }
+
     }
 }
