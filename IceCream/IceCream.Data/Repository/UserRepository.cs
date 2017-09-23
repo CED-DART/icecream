@@ -55,8 +55,7 @@ namespace IceCream.Data.Repository
                 entity.Password = user.Password;
                 entity.IsAdmin = user.IsAdmin;
                 entity.Active = user.Active;
-
-
+                
                 Context.User.Update(entity);
 
                 Context.SaveChanges();
@@ -71,10 +70,10 @@ namespace IceCream.Data.Repository
             Context.SaveChanges();
         }
 
-        public User GetByLogin(string email, string password) 
+        public User GetByLogin(string email, string password)
         {
             User user = Context.User.FirstOrDefault(u => u.Email == email && u.Password == password);
-            
+
             return user;
         }
 
@@ -88,6 +87,13 @@ namespace IceCream.Data.Repository
         public User GetByToken(string token)
         {
             User user = Context.User.FirstOrDefault(u => u.Token == token);
+
+            return user;
+        }
+
+        public User GetByEmail(string email)
+        {
+            User user = Context.User.FirstOrDefault(u => u.Email == email);
 
             return user;
         }

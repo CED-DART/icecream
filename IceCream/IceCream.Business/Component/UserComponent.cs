@@ -39,7 +39,7 @@ namespace IceCream.Business.Component
         {
             if (!string.IsNullOrEmpty(user.Name) && user.Name != originalEntity.Name)
                 originalEntity.Name = user.Name;
-            
+
             if (!string.IsNullOrEmpty(user.Email) && user.Email != originalEntity.Email)
                 originalEntity.Email = user.Email;
 
@@ -104,7 +104,7 @@ namespace IceCream.Business.Component
                 {
                     response.Append(data[i].ToString("x2"));
                 }
-    
+
                 return response.ToString();
             }
         }
@@ -116,22 +116,26 @@ namespace IceCream.Business.Component
 
         public bool ChangePassword(User entity, RequestChangePassword user)
         {
-            if (entity.Password != GetMd5Hash(user.Password)) 
+            if (entity.Password != GetMd5Hash(user.Password))
             {
                 return false;
             }
 
             entity.Password = GetMd5Hash(user.NewPassword);
-
+            entity.Token = string.Empty;
             UserRepository.Update(entity);
 
             return true;
         }
 
-        public async System.Threading.Tasks.Task<bool> ResetPasswordAsync(User user)
+        public async System.Threading.Tasks.Task<bool> ResetPasswordAsync(string email)
         {
             var tokenid = Guid.NewGuid();
-
+            var user = UserRepository.GetByEmail(email);
+            if (user == null)
+            {
+                return false;
+            }
             user.Token = tokenid.ToString();
 
             UserRepository.Update(user);
@@ -141,31 +145,26 @@ namespace IceCream.Business.Component
             using (var client = new HttpClient())
             {
                 response = await client.GetStringAsync(url);
-                //Existem outras opções aliém do GetStringAsync, aí você precisa explorar a classe
             }
 
-            response.Replace("{{name}}", user.Name);
-            response.Replace("{{action_url}}", string.Format("{0}token={1}", "https://icescreamapp.herokuapp.com/resetpassword/", tokenid));
+            response = response.Replace("{{name}}", user.Name);
+            response = response.Replace("{{action_url}}", string.Format("{0}?token={1}", "https://icescreamapp.herokuapp.com/recoverypassword", tokenid));
 
             SendEmail sendEmail = new SendEmail();
             sendEmail.SendEmailIceScream(user.Name, user.Email, "Recuperação de senha", response);
-            
+
             return true;
         }
 
-        public bool RecoveryPasswordToken(string token)
+        public User RecoveryPasswordToken(string token)
         {
-            var user = UserRepository.GetByToken(token);
-
-            return true;
+            return UserRepository.GetByToken(token);
         }
-
 
         public void EnableDisable(User user, bool active)
         {
             user.Active = active;
-
             UserRepository.Update(user);
-        }       
+        }
     }
 }

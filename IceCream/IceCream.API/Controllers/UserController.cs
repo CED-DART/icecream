@@ -156,9 +156,23 @@ namespace IceCream.API.Controllers
         }
 
         [HttpPost, Route("RecoveryPassword")]
-        public IActionResult RecoveryPasswordAsync([FromBody] User user)
+        public async System.Threading.Tasks.Task<IActionResult> RecoveryPassword([FromBody] User user)
         {
+            await Component.ResetPasswordAsync(user.Email);
             return Ok();
+        }
+
+        [HttpGet, Route("RecoveryPasswordToken")]
+        public IActionResult RecoveryPasswordToken(string token)
+        {
+            var user = Component.RecoveryPasswordToken(token);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Json(user);
         }
     }
 }
