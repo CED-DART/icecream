@@ -116,13 +116,14 @@ namespace IceCream.Business.Component
 
         public bool ChangePassword(User entity, RequestChangePassword user)
         {
-            if (entity.Password != GetMd5Hash(user.Password))
+            if (string.IsNullOrEmpty(user.Token) && entity.Password != GetMd5Hash(user.Password))
             {
                 return false;
             }
 
             entity.Password = GetMd5Hash(user.NewPassword);
             entity.Token = string.Empty;
+
             UserRepository.Update(entity);
 
             return true;
@@ -151,7 +152,7 @@ namespace IceCream.Business.Component
             response = response.Replace("{{action_url}}", string.Format("{0}?token={1}", "https://icescreamapp.herokuapp.com/recoverypassword", tokenid));
 
             SendEmail sendEmail = new SendEmail();
-            sendEmail.SendEmailIceScream(user.Name, user.Email, "Recuperação de senha", response);
+            sendEmail.SendEmailIceScream(user.Name, user.Email, "RecuperaÃ§Ã£o de senha", response);
 
             return true;
         }
