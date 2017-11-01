@@ -20,12 +20,11 @@ namespace IceCream.Data.Models
         public DateTime? AcceptedTemsDate { get; set; }
         public DateTime Created { get; set; }
         public bool IsAdmin { get; set; }
-        public string ImageURL { get; set; }
+        public string ImageUrl { get; set; }
         public bool Active { get; set; }
         public string Token { get; set; }
+        public DateTime? ExpiredToken { get; set; }
 
         public virtual ICollection<UserDebtor> UserDebtor { get; set; }
-
-        
     }
 }

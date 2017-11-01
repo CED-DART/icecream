@@ -4,12 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IceCream.Data.Models
 {
-    public partial class IceCreamManagementContext : DbContext
+    public partial class DBIceScreamContext : DbContext
     {
         public virtual DbSet<IceCreamShop> IceCreamShop { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserDebtor> UserDebtor { get; set; }
-        public IceCreamManagementContext(DbContextOptions<IceCreamManagementContext> options)
+
+        public DBIceScreamContext(DbContextOptions<DBIceScreamContext> options)
             : base(options)
         { }
 
@@ -19,8 +20,6 @@ namespace IceCream.Data.Models
             {
                 entity.HasKey(e => e.IdIceCreamShop)
                     .HasName("PK_IceCreamShop");
-
-                entity.Property(e => e.IdIceCreamShop).HasColumnName("IdIceCreamShop");
 
                 entity.Property(e => e.Address)
                     .IsRequired()
@@ -50,6 +49,8 @@ namespace IceCream.Data.Models
 
                 entity.Property(e => e.AcceptedTemsDate).HasColumnType("datetime");
 
+                entity.Property(e => e.Active).HasDefaultValueSql("1");
+
                 entity.Property(e => e.AdmissionDate).HasColumnType("date");
 
                 entity.Property(e => e.BirthDate).HasColumnType("date");
@@ -66,6 +67,14 @@ namespace IceCream.Data.Models
                     .IsRequired()
                     .HasColumnType("varchar(100)");
 
+                entity.Property(e => e.ExpiredToken).HasColumnType("datetime");
+
+                entity.Property(e => e.ImageUrl)
+                    .HasColumnName("ImageURL")
+                    .HasColumnType("varchar(max)");
+
+                entity.Property(e => e.IsAdmin).HasDefaultValueSql("0");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnType("varchar(200)");
@@ -73,16 +82,8 @@ namespace IceCream.Data.Models
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasColumnType("varchar(500)");
-                entity.Property(e => e.IsAdmin)
-                    .IsRequired()
-                    .HasColumnType("bit");
-                entity.Property(e => e.ImageURL)
-                    .HasColumnType("varchar(MAX)");
-                entity.Property(e => e.Active)
-                    .IsRequired()
-                    .HasColumnType("bit");
-                entity.Property(e => e.Token)
-                    .HasColumnType("varchar(100)");
+
+                entity.Property(e => e.Token).HasColumnType("varchar(500)");
             });
 
             modelBuilder.Entity<UserDebtor>(entity =>

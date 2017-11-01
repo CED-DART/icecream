@@ -29,7 +29,7 @@ namespace IceCream.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IceCreamManagementContext>(options => 
+            services.AddDbContext<DBIceScreamContext>(options => 
                 options.UseSqlServer(Configuration["ConnectionString:DefaultConnection"]));
 
             services.AddCors();

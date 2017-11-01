@@ -9,7 +9,7 @@ namespace IceCream.API.Controllers
     {
         private UserDebtorComponent Component { get; set; }
 
-        public UserDebtorController(IceCreamManagementContext context)
+        public UserDebtorController(DBIceScreamContext context)
         {
             Component = new UserDebtorComponent(context);
         }

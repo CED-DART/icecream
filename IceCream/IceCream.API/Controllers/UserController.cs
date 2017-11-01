@@ -10,7 +10,7 @@ namespace IceCream.API.Controllers
     {        
         private UserComponent Component { get; set; }
         
-        public UserController(IceCreamManagementContext context)
+        public UserController(DBIceScreamContext context)
         {
             Component = new UserComponent(context);
         }

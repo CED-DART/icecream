@@ -6,9 +6,9 @@ namespace IceCream.Data.Repository
 {
     public class IceCreamShopRepository
     {
-        private IceCreamManagementContext Context { get; set; }
+        private DBIceScreamContext Context { get; set; }
 
-        public IceCreamShopRepository(IceCreamManagementContext context)
+        public IceCreamShopRepository(DBIceScreamContext context)
         {
             Context = context;
         }

@@ -7,9 +7,9 @@ namespace IceCream.Data.Repository
 {
     public class UserDebtorRepository
     {
-        private IceCreamManagementContext Context { get; set; }
+        private DBIceScreamContext Context { get; set; }
 
-        public UserDebtorRepository(IceCreamManagementContext context)
+        public UserDebtorRepository(DBIceScreamContext context)
         {
             Context = context;
         }
@@ -30,7 +30,7 @@ namespace IceCream.Data.Repository
                 UserContact = u.IdUserNavigation.Contact,
                 DebitDate = u.DebitDate,
                 Reason = u.Reason,
-                ImageURL = u.IdUserNavigation.ImageURL
+                ImageURL = u.IdUserNavigation.ImageUrl
             });
 
             if(maximumItems.HasValue)

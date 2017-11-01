@@ -12,7 +12,7 @@ namespace IceCream.Business.Component
     {
         private UserDebtorRepository UserDebtorRepository { get; set; }
         private UserComponent UserComponent { get; set; }
-        public UserDebtorComponent(IceCreamManagementContext context)
+        public UserDebtorComponent(DBIceScreamContext context)
         {
             UserDebtorRepository = new UserDebtorRepository(context);
             UserComponent = new UserComponent(context);
