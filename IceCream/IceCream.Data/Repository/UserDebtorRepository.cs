@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using IceCream.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace IceCream.Data.Repository
 {
@@ -102,6 +103,11 @@ namespace IceCream.Data.Repository
             }).ToList();
 
             return responseList;
+        }
+
+        public void CreatePendingDebtors()
+        {
+            Context.Database.ExecuteSqlCommand("dbo.GerarDebitos");
         }
     }
 }

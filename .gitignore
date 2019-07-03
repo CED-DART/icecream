@@ -9,3 +9,5 @@ IceCream/IceCream.Data/bin/
 IceCream/IceCream.Data/obj/
 IceCream/IceCream.Business/bin/
 IceCream/IceCream.Business/obj/
+/IceCream/.vs/IceCream/v15/Server/sqlite3
+/.vs/api/v15

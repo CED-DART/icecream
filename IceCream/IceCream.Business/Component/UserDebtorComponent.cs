@@ -35,14 +35,7 @@ namespace IceCream.Business.Component
 
         public void CreatePendingDebtors()
         {
-            var users = UserComponent.GetUserWithAcceptance();
-            
-            //TODO: Método de criação de débitos
-
-            foreach (var user in users)
-            {
-                
-            }
+            UserDebtorRepository.CreatePendingDebtors();
         }
 
         public DateTime? GetLastPaymentDate()
